@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Rtyňáci – komunální volby 2026</title>
+  <meta name="description" content="Rtyňáci – nezávislé sdružení pro komunální volby 2026 ve Rtyni v Podkrkonoší." />
+  <link rel="stylesheet" href="style.css?v=20260914-vize2035-v45" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Rtyňáci – úvod">
+      <img src="../assets/logo-rtynaci.png?v=20260804-0515" alt="Rtyňáci" />
+    </a>
+    <button class="menu-toggle" aria-label="Menu">☰</button>
+    <nav>
+      <a href="#onas">O nás</a>
+      <a href="#priority">Priority</a>
+      <a href="#mapa">Mapa změn</a>
+      <a href="#kandidati">Kandidáti</a>
+      <a href="#videogalerie">Videogalerie</a>
+      <a href="#program">Program</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="vision-teaser" id="visionTeaser" hidden aria-labelledby="visionTeaserTitle">
+      <div class="vision-teaser-inner">
+        <div class="vision-teaser-content">
+                    <h2 id="visionTeaserTitle">Vize Rtyně <span>2035</span></h2>
+          <p>Podívejte se, jak by se mohla Rtyně proměnit. <br>
+          Vize nejsou dogmatem ani hotovým plánem, ale výchozím bodem pro diskuzi, kterou chceme vést společně s vámi.
+          </p>
+          <a class="vision-teaser-btn" href="https://www.rtynaci.cz/vizertyne2035">
+            Prohlédnout vize <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Nezávislé sdružení pro komunální volby 2026</p>
+        <h1>Rtyně, kde se dobře žije.</h1>
+        <p class="lead">Chceme město, které dobře funguje každý den. Město, kde se naslouchá lidem, kde se věci dotahují a kde má veřejná služba skutečný smysl.</p>
+        <p>Naším cílem není pouze spravovat město. Údržba je povinností každého správce, ale sama o sobě nepředstavuje rozvoj. Chceme ze Rtyně vytvořit místo, kde budou chtít lidé žít, zakládat rodiny a spojit s ním svou budoucnost.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#program">Zobrazit program</a>
+          <a class="btn ghost" href="#kontakt">Napište nám</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <strong>Volby 2026</strong>
+        <a class="hero-stat hero-stat-candidates" href="#kandidati">15 kandidátů</a>
+        <a class="hero-stat hero-stat-priorities" href="#priority">11 priorit</a>
+        <a class="hero-stat hero-stat-program" href="#program">praktické kroky pro Rtyni</a>
+      </aside>
+    </section>
+
+    <section id="onas" class="section about-section">
+      <div class="section-head about-head">
+        <p class="eyebrow">O nás</p>
+        <h2>Kdo jsou Rtyňáci</h2>
+        <p>Odborníci ve svých profesích. Zkušení lidé, kteří umí doručit výsledky. Chceme město řídit otevřeně, moderně a s dlouhodobou vizí.</p>
+      </div>
+      <div class="about-layout about-layout-wide">
+        <div class="text-card about-card">
+          <p>Nabízíme životní zkušenosti, energii, odbornost i zdravý rozum. Myslíme si, že Rtyně si zaslouží novou energii, nové nápady a modernější způsob řízení města i jeho institucí.</p>
+          <p>Chceme efektivně využívat veřejné prostředky, více zapojovat občany do života města a hledat řešení společně. Za základ považujeme otevřenou komunikaci, respekt a schopnost dotahovat věci do konce.</p>
+        </div>
+        <div class="about-photo-card">
+          <img src="../assets/rtynaci-spolecna.jpg?v=20260804-0515" alt="Společná fotka kandidátů Rtyňáci" />
+        </div>
+      </div>
+    </section>
+
+    <section id="priority" class="section tint priority-section">
+      <div class="section-head compact-head">
+        <p class="eyebrow">Naše priority</p>
+        <h2>Naše priority</h2>
+        <p>Krátce, přehledně a bez dlouhého rolování. Všechny priority najdete v karuselu, detail je níže v programu.</p>
+      </div>
+      <div class="priority-carousel" aria-label="Karusel priorit">
+        <div class="carousel-topline">
+          <div>
+            <strong>11 priorit pro Rtyni</strong>
+            <span id="priorityCounter">1 / 11</span>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn" type="button" id="priorityPrev" aria-label="Předchozí priorita">‹</button>
+            <button class="carousel-btn" type="button" id="priorityNext" aria-label="Další priorita">›</button>
+          </div>
+        </div>
+        <div class="priority-viewport">
+          <div class="priority-track" id="priorityTrack">
+        <article class="priority-slide" data-priority-card>
+          <span class="priority-number">01</span>
+          <h3>Bydlení pro různé životní situace</h3>
+          <p>Podpora vlastního bydlení změnami územního plánu, zajištění sociálního bydlení a důstojné možnosti bydlení pro seniory.</p>
+          <a href="#program-01">Detail v programu</a>
+        </article>
+        <article class="priority-slide" data-priority-card>
+          <span class="priority-number">02</span>
+          <h3>Sport, pohyb a setkávání</h3>
+          <p>Dostupné sportoviště pro děti, rodiny i veřejnost a prostor pro pravidelný pohyb a setkávání Rtyňáků.</p>
+          <a href="#program-02">Detail v programu</a>
+        </article>
+        <article class="priority-slide" data-priority-card>
+          <span class="priority-number">03</span>
+          <h3>Děti a rodiny</h3>
+          <p>Škola, školka, dětská skupina a kvalitní zázemí pro děti i jejich rodiče.</p>
+          <a href="#program-03">Detail v programu</a>
+        </article>
+        <article class="priority-slide" data-priority-card>
+          <span class="priority-number">04</span>
+          <h3>Doprava a dostupnost</h3>
+          <p>Zlepšení veřejné dopravní obslužnosti v celé Rtyni a dlouhodobé řešení dostupnosti Rtyně k hlavním tahům a dálnici.</p>
+          <a href="#program-04">Detail v programu</a>
+        </article>
+        <article class="priority-slide" data-priority-card>
+          <span class="priority-number">05</span>
+          <h3>Bezpečně pěšky i na kole</h3>
+          <p>Bezpečné cesty do školy, po městě i do okolních obcí. Lepší chodníky, přechody, cyklostezky a riziková místa.</p>
+          <a href="#program-05">Detail v programu</a>
+        </article>
+        <article class="priority-slide" data-priority-card>
+          <span class="priority-number">06</span>
+          <h3>Zdraví, voda a sociální péče</h3>
+          <p>Kvalitní pitná voda, dostupné zdravotní a sociální služby a odpovědný přístup k budoucnosti Rtyně.</p>
+          <a href="#program-06">Detail v programu</a>
+        </article>
+        <article class="priority-slide" data-priority-card>
+          <span class="priority-number">07</span>
+          <h3>Veřejný prostor, který slouží lidem</h3>
+          <p>Péče o veřejná místa s důrazem na funkčnost, bezpečnost, více zeleně a estetiku, aby se lidé ve Rtyni cítili dobře.</p>
+          <a href="#program-07">Detail v programu</a>
+        </article>
+        <article class="priority-slide" data-priority-card>
+          <span class="priority-number">08</span>
+          <h3>Peníze města pod kontrolou</h3>
+          <p>Jasné priority, odpovědné plánování investic, kontrola výdajů a využívání dotací tam, kde dávají smysl.</p>
+          <a href="#program-08">Detail v programu</a>
+        </article>
+        <article class="priority-slide" data-priority-card>
+          <span class="priority-number">09</span>
+          <h3>Spolupráce a komunikace</h3>
+          <p>Otevřená komunikace, férové rozhodování a zapojení veřejnosti do přípravy důležitých projektů.</p>
+          <a href="#program-09">Detail v programu</a>
+        </article>
+        <article class="priority-slide" data-priority-card>
+          <span class="priority-number">10</span>
+          <h3>Kultura a společenské zázemí</h3>
+          <p>Podpora kulturních akcí, spolků a společenského života. Důstojný městský sál, který Rtyni dlouhodobě chybí.</p>
+          <a href="#program-10">Detail v programu</a>
+        </article>
+        <article class="priority-slide" data-priority-card>
+          <span class="priority-number">11</span>
+          <h3>Moderní a úsporný provoz města</h3>
+          <p>Chytrá opatření v budovách, osvětlení, energiích a vodě, která snižují provozní náklady města.</p>
+          <a href="#program-11">Detail v programu</a>
+        </article>
+          </div>
+        </div>
+        <div class="priority-dots" id="priorityDots" aria-label="Přepnutí priority"></div>
+      </div>
+    </section>
+
+    <section id="mapa" class="section map-section">
+      <div class="section-head compact-head">
+        <p class="eyebrow">Konkrétně ve městě</p>
+        <h2>Mapa míst, která chceme rozhýbat</h2>
+        <p>Klikněte na bod v mapě nebo na téma pod ní. V detailu se zobrazí, co se daného místa týká, a odkaz na příslušnou část programu.</p>
+      </div>
+      <div class="interactive-map">
+        <div class="map-photo" aria-label="Letecký pohled na Rtyni v Podkrkonoší">
+          <img src="../assets/rtyne-drone-fresh-20260803.jpg?v=20260804-0515" alt="Letecký pohled na Rtyni v Podkrkonoší" />
+          <button class="map-pin active" type="button" style="--x:48%;--y:52%" data-place="centrum"><span>Centrum</span></button>
+          <button class="map-pin " type="button" style="--x:55%;--y:61%" data-place="deti"><span>Děti</span></button>
+          <button class="map-pin " type="button" style="--x:43%;--y:48%" data-place="kultura"><span>Kultura</span></button>
+          <button class="map-pin " type="button" style="--x:35%;--y:66%" data-place="bezpecne-trasy"><span>Trasy</span></button>
+          <button class="map-pin " type="button" style="--x:64%;--y:45%" data-place="voda"><span>Voda</span></button>
+          <button class="map-pin " type="button" style="--x:70%;--y:70%" data-place="sobestacnost"><span>Soběstačnost</span></button>
+          <button class="map-pin " type="button" style="--x:50%;--y:75%" data-place="sport"><span>Sport</span></button>
+          <button class="map-pin " type="button" style="--x:80%;--y:37%" data-place="spoluprace"><span>Spolupráce</span></button>
+        </div>
+        <aside class="map-detail" id="mapDetail">
+          <p class="eyebrow">Vybrané místo</p>
+          <h3>Centrum, náměstí a Hornická ulice</h3>
+          <p>Širší centrum města chceme řešit jako jeden celek: bezpečnější pohyb lidí, přehledné parkování, více zeleně a upravenější veřejný prostor.</p>
+          <a class="btn primary small" href="#program-07">Zobrazit v programu</a>
+        </aside>
+      </div>
+      <div class="map-chips" aria-label="Výběr míst v mapě">
+          <button class="map-chip active" type="button" data-place="centrum">Centrum</button>
+          <button class="map-chip " type="button" data-place="deti">Děti</button>
+          <button class="map-chip " type="button" data-place="kultura">Kultura</button>
+          <button class="map-chip " type="button" data-place="bezpecne-trasy">Trasy</button>
+          <button class="map-chip " type="button" data-place="voda">Voda</button>
+          <button class="map-chip " type="button" data-place="sobestacnost">Soběstačnost</button>
+          <button class="map-chip " type="button" data-place="sport">Sport</button>
+          <button class="map-chip " type="button" data-place="spoluprace">Spolupráce</button>
+      </div>
+    </section>
+
+    <section id="kandidati" class="section tint">
+      <div class="section-head">
+        <p class="eyebrow">Seznam kandidátů</p>
+        <h2>Lidé, kteří chtějí posunout Rtyni dál</h2>
+      </div>
+      <div class="candidates" id="candidateGrid"></div>
+      <button class="mobile-more" type="button" id="candidateMore">Zobrazit všech 15 kandidátů</button>
+    </section>
+
+<section id="videogalerie" class="section video-library-section" aria-labelledby="videoTitle">
+  <div class="video-library-shell">
+
+    <div class="video-library-head">
+      <div class="video-library-title">
+        <p class="eyebrow">Videogalerie</p>
+        <h2 id="videoTitle">Rtyňáci v obraze</h2>
+      </div>
+
+      <div class="video-tabs" role="tablist" aria-label="Kategorie videí">
+        <button
+          class="video-tab active"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          data-video-category="kandidati">
+          Kandidáti
+        </button>
+
+        <button
+          class="video-tab"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          data-video-category="pripravy">
+          Přípravy
+        </button>
+
+        <button
+          class="video-tab"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          data-video-category="vize">
+          Vize
+        </button>
+      </div>
+    </div>
+
+    <div class="video-carousel" aria-live="polite">
+
+      <button
+        class="video-arrow video-arrow-prev"
+        type="button"
+        id="videoPrev"
+        aria-label="Předchozí videa">
+        ‹
+      </button>
+
+      <div class="video-viewport">
+        <div class="video-track" id="videoTrack"></div>
+      </div>
+
+      <button
+        class="video-arrow video-arrow-next"
+        type="button"
+        id="videoNext"
+        aria-label="Další videa">
+        ›
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<div
+  class="video-modal"
+  id="videoModal"
+  hidden
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="videoModalTitle">
+
+  <div class="video-modal-backdrop" data-video-close></div>
+
+  <div class="video-modal-panel">
+    <div class="video-modal-topline">
+      <h3 id="videoModalTitle">Video</h3>
+
+      <button
+        class="video-modal-close"
+        type="button"
+        data-video-close
+        aria-label="Zavřít video">
+        ×
+      </button>
+    </div>
+
+    <div class="video-modal-player">
+      <video
+        id="videoModalPlayer"
+        controls
+        playsinline
+        preload="metadata">
+      </video>
+    </div>
+  </div>
+</div>
+
+    <section id="program" class="section program full-program">
+      <div class="section-head">
+        <p class="eyebrow">Kompletní volební program</p>
+        <h2>Jak to chceme udělat</h2>
+        <p>Podrobný program jsme přepsali do přehledných moderních karet: u každého tématu je jasně vidět výzva, konkrétní kroky a očekávaný výsledek pro Rtyni.</p>
+      </div>
+      <div class="program-cards">
+        <article class="program-card" id="program-01">
+          <div class="program-number">01</div>
+          <div class="program-body">
+            <h3>Bydlení pro různé životní situace</h3>
+            <div class="program-cols">
+              <section><span>Výzva</span><p>Ve Rtyni chybí dostupnější možnosti bydlení pro mladé rodiny i seniory. Rozvoj bydlení musí být promyšlený a opřený o vhodné změny územního plánu. Výstavba a rekonstrukce probíhají nelogicky a salámovou metodou. Nemají ani jednotný styl, ani logické návaznosti. Dokončit stávající smysluplné projekty – zejména Sadovou a Rychetského ulici a chodník podél Hronovské ulice směrem k Bohdašínu.</p></section>
+              <section><span>Co uděláme</span><p>Zaměříme se na využití lokality Z17 v centru města, kde část pozemků vlastní město a která je určena pro výstavbu rodinných domů.  Zároveň urychlíme změny územního plánu tam, kde občané chtějí stavět na vlastních vhodných pozemcích. Chceme komplexní projekty a jednotný městský styl ve spolupráci s městským architektem. Naplánujeme možnosti bydlení pro seniory – úpravou současných městských budov nebo výstavbou nového domova pro seniory.</p></section>
+              <section class="result"><span>Výsledek</span><p>Rtyně nabídne lepší podmínky pro ty, kteří zde chtějí zůstat, založit rodinu, důstojně stárnout nebo zvládnout náročnější životní období. Bude stylově jednotná a pokud bude Rtyně stavět, tak komplexně s využitím dotací a dle stanoveného plánu. Samozřejmě dokončíme rozpracované projekty – v co nejkratším možném čase a bez etapizace.</p></section>
+            </div>
+          </div>
+        </article>
+        <article class="program-card" id="program-02">
+          <div class="program-number">02</div>
+          <div class="program-body">
+            <h3>Sport, pohyb a setkávání</h3>
+            <div class="program-cols">
+              <section><span>Výzva</span><p>Děti i veřejnost dnes nemají možnost si bez složitého zařizování zahrát tenis, volejbal, basketbal, ping pong nebo se pravidelně hýbat. Chybí také koncepce jednotlivých sportovišť a zasazení do širšího rámce a spojení s potřebami sportovních klubů ve Rtyni. Kvalita stávajících sportovišť je nevyhovující.</p></section>
+              <section><span>Co uděláme</span><p>Připravíme koncepci sportovního a kulturního centra, kde budou sport, pohyb a společenské aktivity běžně dostupné — inspirací nám mohou být například Havlovice. 12 000 m2 v centru města je k tomu jednoznačná příležitosti. Navážeme na potřeby spolků a klubů a stanovíme koncepci rozvoje sportu ve Rtyni přesně podle nich. Nedávné realizace přehodnotíme tak, aby odpovídali požadavkům na moderní místa se vším zázemím, které se dalo řešit již v rámci původních projektů – např. hřiště v sídlišti se zastřešeným posezením, altán s venkovním ohništěm, srovnání stezky v aleji za Zádušní ulicí nebo úprava povrchu na hřišti U Vlčků.</p></section>
+              <section class="result"><span>Výsledek</span><p>Dostupnější sportoviště pro děti, rodiny i veřejnost, zdravější životní styl a další místo, kde se budou Rtyňáci přirozeně potkávat. Vylepšení stávajícího zázemí, důraz na potřeby sportovních klubů a spolupráci. Zasazení do širší koncepce sportu ve Rtyni i zapojení okrajových částí tak, aby i lidé mimo centrum měli možnost sportovního vyžití.</p></section>
+            </div>
+          </div>
+        </article>
+        <article class="program-card" id="program-03">
+          <div class="program-number">03</div>
+          <div class="program-body">
+            <h3>Děti a rodiny</h3>
+            <div class="program-cols">
+              <section><span>Výzva</span><p>Nejmladší školáci potřebují bezpečné, klidné a dobře vybavené zázemí v přirozeném prostředí školy. Současné umístění 1. a 2. třídy v budově na náměstí není z dlouhodobého pohledu ideální a komplikuje každodenní provoz, návaznost výuky i pohyb dětí. Dvě instituce, dvě jídelny na jednom místě nedávají smysl.</p></section>
+              <section><span>Co uděláme</span><p>Připravíme přesun 1. a 2. třídy z budovy na náměstí do areálu nové školy. Vybudujeme přístup a parkování z Hornické ulice přes pozemek za fotbalovým hřištěm. Provedeme administrativní sloučení školy a školky do jedné instituce. V případě potřeby dostavíme  prostory pro výuku.</p></section>
+              <section class="result"><span>Výsledek</span><p>Lepší a bezpečnější zázemí pro nejmladší školáky, přehlednější provoz pro rodiče i školu a kvalitnější podmínky pro rodiny, které chtějí ve Rtyni žít a zůstat. Dostupná péče o předškolní děti včetně nejmenších dětí pracujících rodičů a přívětivé zázemí pro rodiny.</p></section>
+            </div>
+          </div>
+        </article>
+        <article class="program-card" id="program-04">
+          <div class="program-number">04</div>
+          <div class="program-body">
+            <h3>Doprava a dostupnost</h3>
+            <div class="program-cols">
+              <section><span>Výzva</span><p>Dopravní obslužnost není ve všech částech Rtyně stejně dostupná, zejména v horní části města. Chybí také lepší návaznosti veřejné dopravy a dlouhodobé řešení dopravního napojení Rtyně směrem k hlavním tahům a dálnici. S tím souvisí i budování infrastruktury a kapacity parkování u těchto dopravních křižovatek.</p></section>
+              <section><span>Co uděláme</span><p>Navážeme na dopravní studii města z roku 2020 a zaměříme se na zlepšení obslužnosti horní části Rtyně, návaznost spojů a lepší propojení jednotlivých částí města. Dostupnost k hlavním dopravním tahům budeme řešit ve spolupráci s okolními samosprávami a Královéhradeckým krajem, zejména s využitím územně plánovacího koridoru DS5p v úseku Vysokov – Červený Kostelec.</p></section>
+              <section class="result"><span>Výsledek</span><p>Lépe dostupná Rtyně pro každodenní cestování, praktičtější veřejná doprava a dlouhodobě připravované napojení na širší dopravní síť regionu. Lepší možnosti parkování u autobusové a vlakové zastávky.</p></section>
+            </div>
+          </div>
+        </article>
+        <article class="program-card" id="program-05">
+          <div class="program-number">05</div>
+          <div class="program-body">
+            <h3>Bezpečně pěšky i na kole</h3>
+            <div class="program-cols">
+              <section><span>Výzva</span><p>Děti, rodiče, senioři, chodci i cyklisté potřebují bezpečné a přehledné trasy pro každodenní pohyb po městě. Rtyni je zároveň potřeba lépe propojit s okolními obcemi tak, aby lidé mohli bezpečně dojít nebo dojet na kole do školy, za prací, službami, sportem i volným časem. Propojení s okolím je často po nezpevněných cestách, zoufale chybí paralelní spojení k Hronovské ulici.</p></section>
+              <section><span>Co uděláme</span><p>Zajistíme bezpečný příjezd do školy a školky, přehledné přechody, nové chodníky. Chceme lepší návaznosti pěších a cyklistických tras. Připravíme propojení Rtyně s okolními obcemi formou cyklostezek, stezek pro pěší a bezpečných tras tam, kde dnes lidé chodí nebo jezdí po nevyhovujících komunikacích, např. kolem haldy nebo od kampeličky směr Červený Kostelec.</p></section>
+              <section class="result"><span>Výsledek</span><p>Bezpečnější pohyb dětí i dospělých po Rtyni, lepší propojení města s okolím a více možností pro každodenní cesty, rekreaci i zdravý pohyb bez nutnosti spoléhat se vždy jen na auto. Spolupráce s SOJH na koncepci propojení okolí cyklostezkami a příprava paralelní pěší a cyklotrasy k Hronovské ulici.</p></section>
+            </div>
+          </div>
+        </article>
+        <article class="program-card" id="program-06">
+          <div class="program-number">06</div>
+          <div class="program-body">
+            <h3>Zdraví, voda a sociální péče</h3>
+            <div class="program-cols">
+              <section><span>Výzva</span><p>Kvalitní pitná voda je základní podmínkou zdravého života ve městě. Rtyně se pohybuje na hraně limitů u dusičnanů, proto je nutné řešit nové zdroje vody, bezpečnost zásobování i dlouhodobou spolupráci v širším území.</p></section>
+              <section><span>Co uděláme</span><p>Podpořili jsme přípravu nového průzkumného vodního vrtu, který bude realizován na podzim, a budeme důsledně sledovat kvalitu pitné vody včetně hodnot dusičnanů. Současně budeme ve spolupráci s okolními samosprávami a Královéhradeckým krajem prosazovat využití územně plánovaného záměru dálkového vodovodního řadu Vysoká Srbská – Hronov – Červený Kostelec (TV1) jako možné cesty k posílení dlouhodobé bezpečnosti zásobování vodou. Vedle toho se zaměříme na dostupnost zdravotních a sociálních služeb pro občany, zejména seniory a rodiny.</p></section>
+              <section class="result"><span>Výsledek</span><p>Bezpečnější zásobování Rtyně kvalitní pitnou vodou, diverzifikace zdrojů a lepší připravenost města na budoucnost. Dostupnější péče pro ty, kteří ji v každodenním životě potřebují – lékaři, zubař a pečovatelská služba jsou základ, který chceme držet i rozšiřovat tam, kde to bude dávat smysl.</p></section>
+            </div>
+          </div>
+        </article>
+        <article class="program-card" id="program-07">
+          <div class="program-number">07</div>
+          <div class="program-body">
+            <h3>Veřejný prostor, který slouží lidem</h3>
+            <div class="program-cols">
+              <section><span>Výzva</span><p>Centrum města netvoří jen náměstí, ale také navazující prostor autobusového nádraží, parkoviště a Hornické ulice. Právě tato místa dnes potřebují jasnou koncepci, lepší funkční uspořádání, více zeleně, bezpečnější pohyb lidí a citlivější podobu. Upravit je třeba také stanoviště tříděného odpadu, aby nepůsobila zanedbaně a nerušila veřejný prostor.</p></section>
+              <section><span>Co uděláme</span><p>Zadáme studii širšího centra města, která propojí náměstí, autobusové nádraží s parkovištěm a Hornickou ulici do jednoho funkčního a estetického celku. Zaměříme se na bezpečný pohyb chodců, přehledné parkování, doplnění zeleně, laviček, mobiliáře a kultivaci míst pro tříděný odpad.</p></section>
+              <section class="result"><span>Výsledek</span><p>Příjemnější, bezpečnější a upravenější centrum Rtyně, které nebude jen místem průchodu a parkování, ale přirozeným prostorem pro každodenní život, setkávání a dobrý dojem z města.</p></section>
+            </div>
+          </div>
+        </article>
+        <article class="program-card" id="program-08">
+          <div class="program-number">08</div>
+          <div class="program-body">
+            <h3>Peníze města pod kontrolou</h3>
+            <div class="program-cols">
+              <section><span>Výzva</span><p>Město musí umět dobře plánovat investice, hlídat provozní výdaje a rozhodovat podle skutečných priorit. Každá větší akce má mít jasný přínos, reálné financování a nesmí vytvářet zbytečná rizika pro rozpočet. Rozpočet má být sestavován průběžně a konzultován napříč politickým spektrem. Zakázky transparentně soutěženy a ceny zakázek nezávisle ověřovány. Pouze s dobře připravenými projekty můžeme čerpat dotační prostředky.</p></section>
+              <section><span>Co uděláme</span><p>Zavedeme důslednější plánování investic podle potřebnosti, nákladů a dlouhodobého přínosu pro město. Budeme pravidelně vyhodnocovat výdaje, aktivně hledat vhodné dotační možnosti a připravovat projekty tak, aby byly finančně realistické, udržitelné a dobře kontrolovatelné. Otevřené sestavování rozpočtu, průběžné konzultace hlavních investičních akcí se všemi zastupiteli. Aktivní příprava projektů vzhledem k čerpání dotací, zásobník projektů na delší období tak, aby bylo možné reagovat na vypsané dotační tituly.</p></section>
+              <section class="result"><span>Výsledek</span><p>Přehlednější a odpovědnější nakládání s penězi města, méně nahodilých rozhodnutí a více prostředků na projekty, které mají pro Rtyni skutečný smysl. Zapojení všech zastupitelů města i  veřejnosti do rozpočtového procesu tak, aby vznikal otevřeně a průběžně a hlavně v souladu s názorem většiny. Více dotačních prostředků na městské projekty díky dlouhodobému plánování a zásobníku projektů.</p></section>
+            </div>
+          </div>
+        </article>
+        <article class="program-card" id="program-09">
+          <div class="program-number">09</div>
+          <div class="program-body">
+            <h3>Spolupráce a komunikace</h3>
+            <div class="program-cols">
+              <section><span>Výzva</span><p>Občané často nemají dostatek srozumitelných informací o připravovaných záměrech města a mají jen omezenou možnost ovlivnit podobu projektů, které se jich přímo týkají. Zejména u velkých investičních akcí je třeba otevřeně v terénu komunikovat s lidmi, kterých se záměr města bezprostředně týká.</p></section>
+              <section><span>Co uděláme</span><p>Zlepšíme komunikaci města směrem k občanům, budeme pravidelně a srozumitelně informovat o připravovaných projektech, investicích a důležitých rozhodnutích. Změníme podobu zpravodaje i správu sociálních sítí obce. Zavedeme možnost zapojení veřejnosti do přípravy vybraných projektů a podpoříme participativní rozpočet, ve kterém občané sami navrhnou a vyberou menší projekty pro zlepšení života ve městě.</p></section>
+              <section class="result"><span>Výsledek</span><p>Otevřenější město, kde lidé vědí, co se připravuje, rozumějí rozhodnutím zastupitelstva a mohou se konkrétně zapojit do změn ve svém okolí. Lepší vizuální podoba tiskovin vydávaných městem a správa sociálních sítí s možností rychlé interakce. Možnost digitální komunikace na více kanálech i přímo s vedením města.</p></section>
+            </div>
+          </div>
+        </article>
+        <article class="program-card" id="program-10">
+          <div class="program-number">10</div>
+          <div class="program-body">
+            <h3>Kultura a společenské zázemí</h3>
+            <div class="program-cols">
+              <section><span>Výzva</span><p>Rtyně má aktivní spolky, tradice i kulturní život, ale chybí jí důstojné zázemí pro středně velké společenské a kulturní akce. Současné prostory ne vždy odpovídají potřebám města, spolků ani setkávání napříč generacemi. Město dnes nespolupracuje s okolními obcemi tak, jak bychom si představovali ani v kulturní a společenské oblasti.</p></section>
+              <section><span>Co uděláme</span><p>Zasadíme se o vznik důstojného městského sálu střední velikosti a lepšího zázemí pro spolky, společenské aktivity, klubovny, menší kulturní akce i neformální setkávání. Inspirací nám může být nový Spolkový dům v Náchodě. Budeme iniciovat meziobecní spolupráci v této oblasti tak, abychom využili možností stávajících organizací (SOJH, MAS), ale i přímé výměny zkušeností a doplnění aktivit v této oblasti s okolními městy. Zároveň chceme řešit otázku využití městských budov a jejich určení do budoucna.</p></section>
+              <section class="result"><span>Výsledek</span><p>Živější Rtyně s lepšími podmínkami pro kulturu, spolky, plesy, přednášky, koncerty, společenské akce i běžné setkávání lidí různých generací. Lepší a účelnější využití stávajících prostor a koncepce k vybudování nových, které budou navazovat na potřeby jednotlivých složek města.</p></section>
+            </div>
+          </div>
+        </article>
+        <article class="program-card" id="program-11">
+          <div class="program-number">11</div>
+          <div class="program-body">
+            <h3>Moderní a úsporný provoz města</h3>
+            <div class="program-cols">
+              <section><span>Výzva</span><p>Provoz městských budov, energií, veřejného osvětlení a vodního hospodářství bude stále větší zátěží pro rozpočet města. Bez promyšlených úsporných opatření budou peníze chybět jinde.</p></section>
+              <section><span>Co uděláme</span><p>Zaměříme se na úspory v provozu městských budov, veřejného osvětlení, energií a hospodaření s vodou. Budeme podporovat pouze takové technologie a opatření, která mají jasný přínos, rozumnou návratnost a dlouhodobě snižují náklady města. To může být instalace FVE v první fázi u ČOV a vodojemu Brodka, kde probíhá čerpání a kontinuální odběr. Sdílení energie z městských elektráren a zapojení obce do ENERKOM Stolové Hory ke zefektivnění fungování napříč městem.</p></section>
+              <section class="result"><span>Výsledek</span><p>Nižší provozní výdaje, větší energetická a provozní odolnost města a více prostředků na služby, opravy, veřejný prostor a další rozvoj Rtyně. Monitoring odběrů a kontrola spotřeb k efektivnímu fungování města jako celku. Sdílení energie mezi jednotlivými složkami města k maximálnímu využití obnovitelných zdrojů.</p></section>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="kontakt" class="section contact">
+      <div>
+        <p class="eyebrow">Kontakt</p>
+        <h2>Napište nám</h2>
+        <p>Rádi s vámi budeme v kontaktu. Aktuální informace, fotografie a pozvánky budeme průběžně zveřejňovat na Facebooku.</p>
+      </div>
+      <div class="contact-card">
+        <a href="mailto:rtynaci@rtynaci.cz">✉ rtynaci@rtynaci.cz</a>
+        <a href="tel:+420731245870">☎ +420 731 245 870</a>
+        <span>⌖ Rtyně v Podkrkonoší</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="../assets/logo-rtynaci.png?v=20260804-0515" alt="Rtyňáci" />
+    <span>© 2026 RTYŇÁCI – Nezávislé sdružení pro komunální volby</span>
+    <div class="footer-socials" aria-label="Sociální sítě Rtyňáci">
+      <a href="https://www.facebook.com/profile.php?id=61572109281698" target="_blank" rel="noopener noreferrer" aria-label="Rtyňáci na Facebooku" title="Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.2 8.2V6.8c0-.7.2-1.1 1.2-1.1h1.7V2.4c-.8-.1-1.7-.2-2.5-.2-2.8 0-4.7 1.7-4.7 4.8v1.2H6.8v3.7h3.1v9.9h4.3v-9.9h3.1l.5-3.7h-3.6z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/rtynaci?utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Rtyňáci na Instagramu" title="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.8 2.4h8.4c3 0 5.4 2.4 5.4 5.4v8.4c0 3-2.4 5.4-5.4 5.4H7.8c-3 0-5.4-2.4-5.4-5.4V7.8c0-3 2.4-5.4 5.4-5.4zm0 3.2c-1.2 0-2.2 1-2.2 2.2v8.4c0 1.2 1 2.2 2.2 2.2h8.4c1.2 0 2.2-1 2.2-2.2V7.8c0-1.2-1-2.2-2.2-2.2H7.8zm4.2 2.8a3.6 3.6 0 1 1 0 7.2 3.6 3.6 0 0 1 0-7.2zm0 2.3a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6zm4.3-2.6a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8z"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <script src="script.js?v=20260914-vize2035-v43"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+# Velká mediální videa ponecháváme lokálně; pro GitHub je případně použijte přes Git LFS.
+assets/video/**/*.MP4
+assets/video/**/*.mp4
+*.zip
+
+# Nepřidávat vnořenou historii jiného repozitáře
+vizertyne2035/.git/
