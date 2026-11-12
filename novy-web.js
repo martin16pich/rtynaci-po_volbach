@@ -4,7 +4,7 @@ const toggle=document.querySelector('.nav-toggle');const nav=document.querySelec
 // Zmenšení hlavičky a loga při posunutí stránky.
 const header = document.querySelector('.header');
 if (header) {
-  const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 60);
+  const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 0);
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
 }
