@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editor aktualit | Rtyňáci</title>
+<style>
+*{box-sizing:border-box}body{margin:0;color:#111;background:#f4f7fb;font:16px/1.5 Arial,Helvetica,sans-serif}header{background:#004eaf;color:white;padding:22px clamp(18px,4vw,54px)}header h1{margin:0;font-size:32px}header p{margin:4px 0 0}main{max-width:1380px;margin:28px auto;padding:0 20px;display:grid;grid-template-columns:minmax(240px,340px) minmax(0,1fr);gap:24px}section{background:#fff;border:1px solid #dce5f0;border-radius:16px;padding:22px;min-width:0}h2{margin:0 0 18px;font-size:23px}label{display:block;font-weight:700;margin:14px 0 6px}input[type=text],input[type=date],textarea{width:100%;border:1px solid #aab6c7;border-radius:8px;padding:12px;font:inherit}textarea{resize:vertical;min-height:110px}#body{min-height:240px}button{font:inherit;cursor:pointer;border-radius:9px;padding:10px 14px;border:1px solid #0057b8;background:#fff;color:#0057b8;font-weight:700}button.primary{background:#0057b8;color:#fff}button.danger{border-color:#b83f3f;color:#b83f3f}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.list{display:grid;gap:8px}.list button{text-align:left;border:1px solid #dce5f0;color:#111;display:block;width:100%;background:#f8fafd}.list button.selected{border-color:#0057b8;background:#e8f1ff}.list small{display:block;color:#53606e;font-size:12px}.hint{font-size:14px;color:#586678}.status{font-weight:700;color:#0057b8;margin:16px 0 0;min-height:24px}.preview{max-width:360px;width:100%;height:auto;max-height:260px;object-fit:contain;border-radius:8px;background:#f0f3f8;display:none}.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.note{background:#e9f2ff;border-left:4px solid #0057b8;padding:12px 16px;margin-bottom:20px}.full{grid-column:1/-1}.small{font-size:13px;color:#555}.checkbox{display:flex;align-items:center;gap:8px;margin:16px 0}.checkbox label{margin:0}.topactions{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px}input[type=file]{max-width:100%}@media(max-width:830px){main{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><h1>Editor aktualit – Rtyňáci</h1><p>Přidávání článků, dat a fotografií bez psaní kódu</p></header>
+<main>
+<section class="full note"><strong>Jak to funguje:</strong> Články upravíš tady v prohlížeči. Pak klikneš na „Stáhnout balíček změn (ZIP)“, rozbalíš ZIP <strong>přímo do kořene projektu</strong>, potvrdíš nahrazení souboru <code>aktuality-data.js</code> a v GitHub Desktop uděláš Commit → Push. Editor sám nic neodesílá na internet. <strong>Nepřepíše soubory na GitHubu automaticky.</strong></section>
+<section><h2>Články</h2><div class="topactions"><button class="primary" id="new" type="button">+ Nový článek</button></div><div class="list" id="list"></div><p class="hint">Pořadí na webu se řídí datem zveřejnění. Na úvodní stránce se zobrazují tři nejnovější zveřejněné články.</p></section>
+<section><h2>Úprava článku</h2>
+<form id="form">
+<label for="date">Datum zveřejnění</label><input id="date" type="date" required>
+<label for="title">Nadpis</label><input id="title" type="text" maxlength="180" required placeholder="Např. První jednání rady města">
+<label for="lead">Úvodní věta / perex</label><textarea id="lead" required placeholder="Krátký text, který se zobrazí na úvodní stránce."></textarea>
+<label for="body">Celý článek</label><textarea id="body" required placeholder="Sem napiš celý článek. Prázdný řádek oddělí odstavce."></textarea>
+<label for="photo">Fotografie / obrázek (JPG, PNG nebo WebP)</label><input id="photo" type="file" accept="image/jpeg,image/png,image/webp"><p class="hint">Při změně fotografie vyber nový soubor. Ideálně do 5 MB. Fotografie se vloží do exportovaného ZIPu.</p>
+<img id="preview" class="preview" alt="Náhled fotografie"><p id="image-path" class="small"></p>
+<div class="checkbox"><input id="published" type="checkbox" checked><label for="published">Zveřejnit na webu</label></div>
+<div class="actions"><button class="primary" type="submit">Uložit článek v editoru</button><button id="delete" class="danger" type="button">Smazat článek</button></div>
+</form>
+<p class="status" id="status" role="status"></p>
+<div class="actions"><button class="primary" id="export" type="button">Stáhnout balíček změn (ZIP)</button><button id="restore" type="button">Znovu načíst stav webu</button></div>
+<p class="hint">Nezapomeň po poslední úpravě balíček znovu stáhnout. Neodeslané úpravy jsou uloženy jen v tomto otevřeném editoru. Pokud stránku obnovíš, nahrané fotografie a neexportované změny se ztratí.</p>
+</section>
+</main>
+<script src="aktuality-data.js"></script>
+<script>
+(() => {
+'use strict';
+let articles = structuredClone(Array.isArray(window.RTYNACI_ARTICLES)?window.RTYNACI_ARTICLES:[]);
+const newImages = new Map();
+let selected = null;
+const $ = id => document.getElementById(id);
+const text = (el, value) => {el.textContent=value;};
+const today=()=>{const dt=new Date();return new Date(dt.getTime()-dt.getTimezoneOffset()*60000).toISOString().slice(0,10);};
+const status = msg => text($('status'),msg);
+function sorted(){return [...articles].sort((a,b)=>b.date.localeCompare(a.date)||(b.createdAt||'').localeCompare(a.createdAt||''));}
+function renderList(){
+  const list=$('list');list.replaceChildren();
+  if(!articles.length){const p=document.createElement('p');p.className='hint';p.textContent='Zatím nejsou připravené žádné články.';list.append(p);}
+  sorted().forEach(a=>{const b=document.createElement('button');b.type='button';if(a.id===selected)b.className='selected';
+    const strong=document.createElement('strong');strong.textContent=a.title||'Nový článek';b.append(strong);
+    const small=document.createElement('small');small.textContent=a.date+' · '+(a.published===false?'Nezveřejněno':'Zveřejněno');b.append(small);
+    b.onclick=()=>select(a.id);list.append(b);
+  });
+}
+function resetForm(){
+  $('form').reset();$('date').value=today();$('published').checked=true;$('preview').style.display='none';$('preview').removeAttribute('src');text($('image-path'),'');$('photo').value='';
+}
+function select(id){
+  selected=id;resetForm();
+  const a=articles.find(x=>x.id===id);
+  if(a){$('date').value=a.date||today();$('title').value=a.title||'';$('lead').value=a.lead||'';$('body').value=a.body||'';$('published').checked=a.published!==false;
+    if(a.image){const img=newImages.get(a.image);$('preview').src=img?URL.createObjectURL(img):a.image;$('preview').style.display='block';text($('image-path'),a.image);}
+  }
+  renderList();status('');
+}
+function makeId(){return 'a-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7);}
+$('new').onclick=()=>{selected=null;resetForm();renderList();$('title').focus();status('Nový článek: vyplň údaje a klikni na Uložit.');};
+$('photo').onchange=()=>{
+  const file=$('photo').files?.[0];if(!file)return;
+  if(!['image/jpeg','image/png','image/webp'].includes(file.type)){alert('Použij JPG, PNG nebo WebP.');$('photo').value='';return;}
+  if(file.size>12*1024*1024){alert('Fotografie je příliš velká (maximum 12 MB).');$('photo').value='';return;}
+  $('preview').src=URL.createObjectURL(file);$('preview').style.display='block';text($('image-path'),'Nová fotografie: '+file.name);
+};
+$('form').onsubmit=event=>{
+  event.preventDefault();
+  const file=$('photo').files?.[0];
+  let a=articles.find(x=>x.id===selected);
+  if(!a){a={id:makeId(),createdAt:new Date().toISOString(),image:''};articles.push(a);selected=a.id;}
+  a.date=$('date').value;a.title=$('title').value.trim();a.lead=$('lead').value.trim();a.body=$('body').value.trim();a.published=$('published').checked;
+  if(file){const ext=file.type==='image/png'?'png':file.type==='image/webp'?'webp':'jpg';
+    const path='assets/aktuality/'+a.id+'.'+ext;
+    newImages.set(path,file);a.image=path;a.imageAlt=a.title;
+  }
+  $('photo').value='';select(a.id);status('Článek je uložený v editoru. Pro zveřejnění stáhni ZIP.');
+};
+$('delete').onclick=()=>{if(!selected){status('Nejdřív vyber článek.');return;}
+  const a=articles.find(x=>x.id===selected);if(!confirm('Opravdu smazat článek „'+a.title+'“?'))return;
+  articles=articles.filter(x=>x.id!==selected);selected=null;resetForm();renderList();status('Článek smazán v editoru. Změna se projeví až po exportu ZIPu.');
+};
+$('restore').onclick=()=>{if(!confirm('Zahodit všechny neexportované změny a načíst data ze souboru webu?'))return;
+  articles=structuredClone(Array.isArray(window.RTYNACI_ARTICLES)?window.RTYNACI_ARTICLES:[]);newImages.clear();selected=null;resetForm();renderList();status('Načten původní stav z aktuality-data.js.');
+};
+// Miniaturní ZIP zapisovač bez externích knihoven a bez internetového připojení.
+const te=new TextEncoder();
+function crc32(bytes){let c=0xffffffff;for(const byte of bytes){c^=byte;for(let i=0;i<8;i++)c=(c>>>1)^((c&1)?0xedb88320:0);}return(c^0xffffffff)>>>0;}
+function u16(n){return [n&255,(n>>>8)&255];}
+function u32(n){return [n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255];}
+function concat(chunks){const len=chunks.reduce((n,c)=>n+c.length,0);const out=new Uint8Array(len);let off=0;for(const c of chunks){out.set(c,off);off+=c.length;}return out;}
+function zip(entries){const local=[],central=[];let offset=0;const dt=new Date();
+  const time=((dt.getHours()&31)<<11)|((dt.getMinutes()&63)<<5)|(Math.floor(dt.getSeconds()/2)&31);
+  const day=(((dt.getFullYear()-1980)&127)<<9)|(((dt.getMonth()+1)&15)<<5)|(dt.getDate()&31);
+  for(const [filename,data] of entries){const name=te.encode(filename),crc=crc32(data),n=data.length;
+    const head=new Uint8Array([80,75,3,4,...u16(20),...u16(0x800),...u16(0),...u16(time),...u16(day),...u32(crc),...u32(n),...u32(n),...u16(name.length),...u16(0)]);
+    local.push(head,name,data);
+    const cen=new Uint8Array([80,75,1,2,...u16(20),...u16(20),...u16(0x800),...u16(0),...u16(time),...u16(day),...u32(crc),...u32(n),...u32(n),...u16(name.length),...u16(0),...u16(0),...u16(0),...u16(0),...u32(0),...u32(offset)]);
+    central.push(cen,name);offset+=head.length+name.length+n;
+  }
+  const c=concat(central),end=new Uint8Array([80,75,5,6,...u16(0),...u16(0),...u16(entries.length),...u16(entries.length),...u32(c.length),...u32(offset),...u16(0)]);
+  return new Blob([...local,c,end],{type:'application/zip'});
+}
+$('export').onclick=async()=>{
+  const script='/* Aktuality Rtyňáci – upravujte v editor-aktualit.html */\nwindow.RTYNACI_ARTICLES = '+JSON.stringify(sorted(),null,2)+';\n';
+  const files=[['aktuality-data.js',te.encode(script)]];
+  for(const [path,file] of newImages){if(articles.some(a=>a.image===path))files.push([path,new Uint8Array(await file.arrayBuffer())]);}
+  const blob=zip(files),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='rtynaci-aktuality-zmeny.zip';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+  status('Balíček stažen. Rozbal jej do kořene projektu a použij Commit → Push v GitHub Desktop.');
+};
+resetForm();renderList();
+})();
+</script>
+</body></html>

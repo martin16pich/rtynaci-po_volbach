@@ -356,89 +356,62 @@ a {
   color: #003e91;
 }
 
+/* Náš tým a kontakt */
+.slim {
+  padding-top: 35px;
+  padding-bottom: 42px;
+}
+
+.slim p {
+  max-width: 800px;
+  font-size: 17px;
+}
 
 /* ========================================
-   KONTAKT
+   AKTUALITY – KARTY, ARCHIV A DETAIL ČLÁNKU
 ======================================== */
+.news-item { align-items: start; }
+.news-photo { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; background: #eef3fa; }
+.news-content h3 { margin-top: 6px; }
+.news-content .news-teaser { margin: 8px 0 14px; }
+.news-open { display: inline-block; border: 0; background: transparent; padding: 0; color: #0568eb; font: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.news-open:hover { color: #003e91; }
+.news-more { display: flex; justify-content: center; margin: 12px 0 4px; }
+.news-all-link { display: inline-flex; align-items: center; gap: 12px; border: 2px solid #0057b8; border-radius: 9px; padding: 12px 24px; font-weight: 700; color: #0057b8; text-decoration: none; }
+.news-all-link:hover { background: #0057b8; color: #fff; }
+.news-empty { color: #596477; font-size: 17px; padding-block: 16px; }
+.archive-intro { color: #4b5565; margin: 0 0 26px; font-size: 18px; }
+.article-modal[hidden] { display: none; }
+.article-modal { position: fixed; z-index: 1000; inset: 0; display: grid; place-items: center; padding: 18px; }
+.article-modal-backdrop { position: absolute; inset: 0; background: rgba(11, 22, 38, .72); }
+.article-modal-panel { position: relative; width: min(850px, 100%); max-height: min(88vh, 1000px); overflow-y: auto; background: #fff; border-radius: 16px; padding: 52px clamp(22px, 4vw, 48px) 38px; box-shadow: 0 22px 90px #0005; }
+.article-modal-close { position: absolute; top: 10px; right: 17px; border: 0; background: transparent; color: #111; font-size: 40px; line-height: 1; cursor: pointer; }
+.article-modal-close:focus-visible { outline: 3px solid #0057b8; }
+.article-modal time { display: block; color: #505b68; margin-bottom: 8px; }
+.article-modal h2 { font-size: clamp(27px, 3.1vw, 42px); line-height: 1.15; margin: 0 0 20px; }
+.article-modal img { display: block; width: 100%; max-height: 470px; object-fit: contain; border-radius: 10px; margin: 20px 0 24px; background: #f5f7fa; }
+.article-modal-lead { font-size: 19px; font-weight: 600; }
+.article-modal-body { font-size: 18px; line-height: 1.65; white-space: pre-line; overflow-wrap: anywhere; }
+body.modal-open { overflow: hidden; }
+@media (max-width: 720px) { .article-modal-panel { padding: 48px 20px 24px; } }
 
-.contact-section {
-  background: #fff;
-  padding-top: 55px;
-  padding-bottom: 65px;
-}
-
-.contact-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 60px;
-}
-
-.contact-label {
-  margin: 0 0 12px;
-  color: #111;
-  font-size: 18px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.contact-text h2 {
-  margin: 0 0 20px;
-  color: #111;
-  font-size: clamp(36px, 4vw, 56px);
-  line-height: 1.1;
-}
-
-.contact-text > p:last-child {
-  margin: 0;
-  color: #111;
-  font-size: 20px;
-  font-weight: 400;
-}
-
-.contact-details {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 24px;
-}
-
-.contact-details a {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  color: #111;
-  font-size: clamp(20px, 2vw, 26px);
-  font-weight: 400;
-  text-decoration: none;
-}
-
-.contact-details a:hover {
-  color: #0057b8;
-  text-decoration: underline;
-}
-
+/* ========================================
+   KONTAKT – BÍLÉ POZADÍ
+======================================== */
+.contact-section { background: #fff; padding-top: 55px; padding-bottom: 65px; }
+.contact-inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 60px; }
+.contact-label { margin: 0 0 12px; color: #111; font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.contact-text h2 { margin: 0 0 20px; color: #111; font-size: clamp(36px, 4vw, 56px); line-height: 1.1; }
+.contact-text > p:last-child { margin: 0; color: #111; font-size: 20px; font-weight: 400; }
+.contact-details { display: flex; flex-direction: column; align-items: flex-end; gap: 24px; }
+.contact-details a { display: inline-flex; align-items: center; gap: 12px; color: #111; font-size: clamp(20px, 2vw, 26px); font-weight: 400; text-decoration: none; }
+.contact-details a:hover { color: #0057b8; text-decoration: underline; }
 @media (max-width: 720px) {
-  .contact-section {
-    padding-top: 40px;
-    padding-bottom: 45px;
-  }
-
-  .contact-inner {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .contact-details {
-    gap: 18px;
-  }
-
-  .contact-details a {
-    font-size: 19px;
-  }
+ .contact-section { padding-top: 40px; padding-bottom: 45px; }
+ .contact-inner { grid-template-columns: 1fr; gap: 30px; }
+ .contact-details { align-items: flex-start; gap: 18px; }
+ .contact-details a { font-size: 19px; }
 }
-
 
 /* ========================================
    NÁŠ TÝM – OSM ČLENŮ

@@ -1,0 +1,38 @@
+RTYŇÁCI – AKTUALITY A EDITOR
+===========================
+
+1. Rozbal celý tento ZIP do kořene projektu rtynaci-po_volbach.
+   Potvrď nahrazení souborů index.html, novy-web.css a novy-web.js.
+   Původní web ve složce volby2026/ ani nohejbal/ se neupravuje.
+
+2. Otevři projekt ve VS Code → Live Server.
+
+3. Otevři v prohlížeči editor-aktualit.html na adrese Live Serveru,
+   například http://127.0.0.1:5500/editor-aktualit.html.
+   (U jiných konfigurací může být jiný port.)
+
+4. Vyplň datum, nadpis, úvodní větu, celý článek a vyber fotografii.
+   Klikni na Uložit článek v editoru. Můžeš přidat více článků.
+
+5. Klikni na Stáhnout balíček změn (ZIP).
+   Tento NOVÝ ZIP rozbal do KOŘENE projektu a potvrď přepsání
+   aktuality-data.js. Současně se vloží nové fotografie do
+   assets/aktuality/.
+
+6. Zkontroluj hlavní stránku: zobrazí tři nejnovější aktuality,
+   tlačítko Starší zprávy otevře aktuality.html do nové karty.
+   Více informací zobrazí celý článek v modálním okně.
+
+7. GitHub Desktop: branch develop → Commit → Push origin.
+   Před další editací na druhém PC nejdříve Pull origin.
+
+DŮLEŽITÉ:
+- GitHub Pages je statický hosting, editor neumí sám publikovat.
+- Editor je určen k úpravám v prohlížeči, exportuje soubory pro Git.
+- Prázdný počáteční seznam neobsahuje ukázkové/vymyšlené zprávy.
+- Editor neukládá rozpracované změny trvale. Vždy stáhni balíček.
+- Při dalším otevření editor čte aktuální aktuality-data.js.
+- Staré fotografie při smazání článku zůstávají v assets/aktuality/;
+  pokud chceš uklidit nepoužívané soubory, smaž je případně ručně.
+- Pokud publikuješ i editor-aktualit.html na GitHub Pages, je veřejně
+  dostupný; neumožní ale nikomu měnit obsah na GitHubu.

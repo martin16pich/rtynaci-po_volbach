@@ -37,21 +37,8 @@
   </section>
   <section class="section wrap" id="aktuality" aria-labelledby="news-title">
     <h2 id="news-title">Aktuality</h2>
-    <p class="editor-note">Pracovní ukázka: následující články vycházejí ze zaslaného grafického návrhu. Před zveřejněním ověřte jejich obsah a doplňte fotografie a odkazy.</p>
-    <div class="news-list">
-      <article class="news-item">
-        <div class="news-visual news-visual-city" role="img" aria-label="Pohled na Rtyni v Podkrkonoší"></div>
-        <div class="news-content"><time datetime="2026-11-11">11. listopadu 2026</time><h3>První týdny ve vedení města</h3><p>Převzetí úřadu, seznamování s odbory a příprava prvního jednání rady.</p><a href="#kontakt">Více informací připravujeme <span aria-hidden="true">→</span></a></div>
-      </article>
-      <article class="news-item">
-        <div class="news-visual news-visual-trails" role="img" aria-label="Krajina v okolí Rtyně"></div>
-        <div class="news-content"><time datetime="2026-11-10">10. listopadu 2026</time><h3>Rtyňské traily: další krok k realizaci</h3><p>Oslovili jsme možného dodavatele, který nám připraví cenovou nabídku.</p><a href="#kontakt">Více informací připravujeme <span aria-hidden="true">→</span></a></div>
-      </article>
-      <article class="news-item">
-        <div class="news-visual news-visual-plans" role="img" aria-label="Ilustrační pohled na rozvoj města"></div>
-        <div class="news-content"><time datetime="2026-11-10">10. listopadu 2026</time><h3>Městský architekt: jednáme s ČKA</h3><p>S Českou komorou architektů řešíme uspořádání výběrového řízení.</p><a href="#kontakt">Více informací připravujeme <span aria-hidden="true">→</span></a></div>
-      </article>
-    </div>
+    <div class="news-list" id="home-news" aria-live="polite"></div>
+    <div class="news-more"><a class="news-all-link" href="aktuality.html" target="_blank" rel="noopener noreferrer">Starší zprávy <span aria-hidden="true">↗</span></a></div>
   </section>
   <section class="section wrap team-section" id="tym" aria-labelledby="team-title">
     <h2 id="team-title">Náš tým</h2>
@@ -243,35 +230,19 @@
       </article>
     </div>
   </section>
-  
-<section class="section wrap contact-section" id="kontakt">
-
-  <div class="contact-inner">
-
-    <div class="contact-text">
-      <p class="contact-label">Kontakt</p>
-      <h2>Napište nám</h2>
-      <p>Buďte s námi v kontaktu.</p>
+  <section class="section wrap contact-section" id="kontakt">
+    <div class="contact-inner">
+      <div class="contact-text">
+        <p class="contact-label">Kontakt</p>
+        <h2>Napište nám</h2>
+        <p>Buďte s námi v kontaktu.</p>
+      </div>
+      <div class="contact-details">
+        <a href="mailto:rtynaci@rtynaci.cz"><span aria-hidden="true">✉</span> rtynaci@rtynaci.cz</a>
+        <a href="tel:+420736626606"><span aria-hidden="true">☎</span> 736 626 606</a>
+      </div>
     </div>
-
-    <div class="contact-details">
-
-      <a href="mailto:rtynaci@rtynaci.cz">
-        <span aria-hidden="true">✉</span>
-        rtynaci@rtynaci.cz
-      </a>
-
-      <a href="tel:+420736626606">
-        <span aria-hidden="true">☎</span>
-        736 626 606
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
+  </section>
 </main>
 
 <footer class="footer">
@@ -316,5 +287,14 @@
   </div>
 </footer>
 
+<div class="article-modal" id="article-modal" hidden>
+  <div class="article-modal-backdrop" data-close-article></div>
+  <div class="article-modal-panel" role="dialog" aria-modal="true" aria-labelledby="article-modal-title" tabindex="-1">
+    <button class="article-modal-close" type="button" aria-label="Zavřít článek" data-close-article>×</button>
+    <div id="article-modal-content"></div>
+  </div>
+</div>
+<script src="aktuality-data.js" defer></script>
+<script src="aktuality.js" defer></script>
 <script src="novy-web.js" defer></script>
 </body></html>
